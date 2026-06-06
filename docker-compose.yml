@@ -1,0 +1,68 @@
+version: "3.8"
+
+services:
+
+  db:
+    image: mysql:8.0
+    container_name: wp-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppass
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - backend-net
+
+  wordpress:
+    image: wordpress:latest
+    container_name: wp-app
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppass
+      WORDPRESS_DB_NAME: wordpress
+    depends_on:
+      - db
+    volumes:
+      - wp_data:/var/www/html
+    networks:
+      - frontend-net
+      - backend-net
+
+  redis:
+    image: redis:alpine
+    container_name: wp-redis
+    restart: always
+    networks:
+      - backend-net
+
+  minio:
+    image: minio/minio
+    container_name: wp-minio
+    restart: always
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    networks:
+      - backend-net
+
+volumes:
+  db_data:
+  wp_data:
+  minio_data:
+
+networks:
+  frontend-net:
+  backend-net:
