@@ -1,0 +1,18 @@
+KONTRIBUSI ANGGOTA
+Dalam pelaksanaan WordPress Cloud Project, setiap anggota kelompok memiliki peran dalam mendukung penyelesaian Milestone 1. 
+Adapun kontribusi masing-masing anggota adalah sebagai berikut.
+1. Anastasia Suru (240403010017)
+Kontribusi yang dilakukan:
+•	Membuat repository GitHub.
+•	Menyusun struktur project.
+•	Membuat file docker-compose.yml.
+•	Mengonfigurasi layanan WordPress dan database MySQL.
+•	Membuat Docker Volume untuk persistent storage.
+•	Membuat Docker Network untuk isolasi jaringan.
+•	Melakukan pengujian layanan menggunakan Docker.
+•	Menyusun dokumentasi dan laporan proyek.
+2. Mariana Mako Pawe (240403010052)
+Kontribusi yang dilakukan:
+•	Membantu proses pengujian sistem.
+•	Membantu dokumentasi hasil implementasi.
+•	Membantu penyusunan laporan proyek.
