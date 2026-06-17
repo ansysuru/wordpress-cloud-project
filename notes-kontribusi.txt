@@ -1,27 +1,20 @@
-KONTRIBUSI ANGGOTA
+MILESTONE 2
+Optimasi Performa dan Object Storage
 
-Dalam pelaksanaan WordPress Cloud Project, setiap anggota kelompok memiliki peran dalam mendukung penyelesaian Milestone 1. Adapun kontribusi masing-masing anggota adalah sebagai berikut.
+Anastasia Suru
 
-1. Anastasia Suru (240403010017)
+- Menambahkan service Redis pada Docker Compose.
+- Melakukan konfigurasi Redis Cache untuk WordPress.
+- Menambahkan service MinIO Object Storage.
+- Melakukan pengujian seluruh container.
+- Membuat dokumentasi dan mengunggah ke GitHub.
 
-Kontribusi yang dilakukan:
-• Membuat repository GitHub.
-• Menyusun struktur project.
-• Membuat file docker-compose.yml.
-• Mengonfigurasi layanan WordPress dan database MySQL.
-• Membuat Docker Volume untuk persistent storage.
+Mariana Mako Pawe
 
-2. Mariana Mako Pawe (240403010052)
+- Membantu pengujian Redis.
+- Membantu konfigurasi WordPress.
 
-Kontribusi yang dilakukan:
-• Membuat Docker Network untuk isolasi jaringan.
-• Membantu proses pengujian sistem.
-• Membantu dokumentasi hasil implementasi.
+Maria helena lipat
 
-3. Maria helena lipat ([240403010031])
-
-Kontribusi yang dilakukan:
-• Melakukan pengujian layanan menggunakan Docker.
-• Membantu troubleshooting dan validasi konfigurasi.
-• Menyusun dokumentasi dan laporan proyek.
-• Melakukan review hasil implementasi sebelum pengumpulan.
+- Membantu dokumentasi.
+- Membantu pengujian MinIO dan upload media.

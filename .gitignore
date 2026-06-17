@@ -1,1 +1,7 @@
 .env
+
+db_data/
+wp_data/
+minio_data/
+
+*.log
