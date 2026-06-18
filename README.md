@@ -4,6 +4,8 @@
 
 Project ini dibuat untuk memenuhi tugas mata kuliah Cloud Computing. Sistem dibangun menggunakan Docker Compose dengan beberapa container yang saling terhubung, yaitu WordPress, MySQL, Redis, dan MinIO.
 
+Implementasi ini bertujuan untuk memahami konsep deployment aplikasi berbasis container, optimasi performa menggunakan caching, serta pemanfaatan object storage dalam lingkungan cloud.
+
 ## Teknologi yang Digunakan
 
 * WordPress
@@ -14,10 +16,11 @@ Project ini dibuat untuk memenuhi tugas mata kuliah Cloud Computing. Sistem diba
 
 ## Struktur Layanan
 
-* WordPress sebagai CMS utama.
-* MySQL sebagai database.
-* Redis sebagai cache untuk meningkatkan performa.
-* MinIO sebagai object storage untuk penyimpanan file.
+* **WordPress** sebagai CMS utama.
+* **MySQL** sebagai database penyimpanan data.
+* **Redis** sebagai cache untuk meningkatkan performa aplikasi.
+* **MinIO** sebagai object storage untuk penyimpanan file dan media.
+* **Docker Compose** untuk mengelola seluruh layanan dalam satu lingkungan.
 
 ## Menjalankan Project
 
@@ -48,13 +51,13 @@ docker ps
 
 ## Akses Layanan
 
-WordPress
+### WordPress
 
 ```text
 http://localhost:8080
 ```
 
-MinIO Console
+### MinIO Console
 
 ```text
 http://localhost:9001
@@ -69,19 +72,26 @@ Password : minioadmin
 
 ## Milestone 1
 
-* Setup repository GitHub
-* Setup Docker Compose
-* Deployment WordPress dan MySQL
+* Setup repository GitHub.
+* Membuat konfigurasi Docker Compose.
+* Deployment WordPress dan MySQL menggunakan container.
+* Pengujian akses WordPress melalui browser.
 
 ## Milestone 2
 
-* Integrasi Redis Cache
-* Integrasi MinIO Object Storage
-* Pengujian performa dan penyimpanan media
+* Integrasi Redis Cache dengan WordPress.
+* Integrasi MinIO sebagai Object Storage.
+* Pengujian layanan Redis dan MinIO.
+* Upload file media pada bucket object storage.
+* Dokumentasi hasil implementasi dan commit ke GitHub.
+
+## Hasil Implementasi
+
+Pada Milestone 2, Redis berhasil diintegrasikan dengan WordPress menggunakan Redis Object Cache. Selain itu, MinIO berhasil dijalankan sebagai object storage dan digunakan untuk menyimpan file hasil pengujian. Seluruh container dapat berjalan dengan baik menggunakan Docker Compose.
 
 ## Dokumentasi
 
-Screenshot progress disimpan pada folder:
+Screenshot proses pengerjaan dan hasil implementasi disimpan pada folder:
 
 ```text
 screenshots/
