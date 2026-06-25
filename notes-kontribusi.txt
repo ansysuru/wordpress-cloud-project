@@ -1,20 +1,17 @@
-MILESTONE 2
-Optimasi Performa dan Object Storage
+NOTES KONTRIBUSI MINGGU 3
 
 Anastasia Suru
 
-- Menambahkan service Redis pada Docker Compose.
-- Melakukan konfigurasi Redis Cache untuk WordPress.
-- Menambahkan service MinIO Object Storage.
-- Melakukan pengujian seluruh container.
-- Membuat dokumentasi dan mengunggah ke GitHub.
+* Konfigurasi Docker Compose.
+* Setup WordPress, MySQL, Redis, dan MinIO.
+* Konfigurasi file .env dan pengujian sistem.
+
+Maria Helena Lipat
+
+* Dokumentasi dan screenshot hasil implementasi.
+* Membantu pengujian sistem.
 
 Mariana Mako Pawe
 
-- Membantu pengujian Redis.
-- Membantu konfigurasi WordPress.
-
-Maria helena lipat
-
-- Membantu dokumentasi.
-- Membantu pengujian MinIO dan upload media.
+* Portofolio Bisa.ai.
+* Membantu pengujian dan finalisasi project.

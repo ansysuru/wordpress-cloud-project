@@ -2,9 +2,11 @@
 
 ## Deskripsi
 
-Project ini dibuat untuk memenuhi tugas mata kuliah Cloud Computing. Sistem dibangun menggunakan Docker Compose dengan beberapa container yang saling terhubung, yaitu WordPress, MySQL, Redis, dan MinIO.
+Project ini dibuat untuk memenuhi tugas mata kuliah Cloud Computing. Sistem dibangun menggunakan Docker Compose dengan beberapa layanan yang berjalan dalam container dan saling terhubung, yaitu WordPress, MySQL, Redis, dan MinIO.
 
-Implementasi ini bertujuan untuk memahami konsep deployment aplikasi berbasis container, optimasi performa menggunakan caching, serta pemanfaatan object storage dalam lingkungan cloud.
+Implementasi ini bertujuan untuk mempelajari deployment aplikasi berbasis container, optimasi performa menggunakan caching, penerapan object storage, serta penerapan best practices keamanan melalui penggunaan file environment (.env).
+
+---
 
 ## Teknologi yang Digunakan
 
@@ -13,62 +15,126 @@ Implementasi ini bertujuan untuk memahami konsep deployment aplikasi berbasis co
 * Redis Cache
 * MinIO Object Storage
 * Docker Compose
+* Docker Network
+* Environment Variables (.env)
 
-## Struktur Layanan
+---
 
-* **WordPress** sebagai CMS utama.
-* **MySQL** sebagai database penyimpanan data.
-* **Redis** sebagai cache untuk meningkatkan performa aplikasi.
-* **MinIO** sebagai object storage untuk penyimpanan file dan media.
-* **Docker Compose** untuk mengelola seluruh layanan dalam satu lingkungan.
+## Arsitektur Sistem
 
-## Menjalankan Project
+Layanan yang digunakan dalam project ini:
 
-### Clone Repository
+### WordPress
+
+Berfungsi sebagai Content Management System (CMS) utama yang digunakan untuk mengelola website.
+
+### MySQL
+
+Digunakan sebagai database utama untuk menyimpan data WordPress.
+
+### Redis
+
+Digunakan sebagai cache service untuk meningkatkan performa aplikasi WordPress.
+
+### MinIO
+
+Digunakan sebagai object storage untuk menyimpan file dan media.
+
+### Docker Compose
+
+Digunakan untuk mengelola seluruh container dalam satu konfigurasi.
+
+---
+
+## Struktur Project
+
+wordpress-cloud-project/
+
+├── docker-compose.yml
+
+├── .env
+
+├── README.md
+
+├── notes-kontribusi.txt
+
+└── screenshots/
+
+---
+
+## Keamanan Konfigurasi (Milestone 3)
+
+Untuk menerapkan best practices keamanan:
+
+* Seluruh credentials disimpan pada file `.env`.
+* Tidak terdapat hardcode password pada file `docker-compose.yml`.
+* Konfigurasi database dan object storage menggunakan environment variables.
+* Pemisahan konfigurasi aplikasi dan data sensitif dilakukan untuk meningkatkan keamanan deployment.
+
+Contoh penggunaan environment variables:
+
+MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+
+MYSQL_PASSWORD=${MYSQL_PASSWORD}
+
+MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}
+
+---
+
+## Cara Menjalankan Project
+
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/ansysuru/wordpress-cloud-project.git
 cd wordpress-cloud-project
 ```
 
-### Membuat File Environment
+### 2. Membuat File Environment
 
 ```bash
 cp .env.example .env
 ```
 
-### Menjalankan Container
+### 3. Menjalankan Docker Compose
 
 ```bash
 docker compose up -d
 ```
 
-### Memeriksa Status Container
+### 4. Memeriksa Status Container
 
 ```bash
 docker ps
 ```
 
+### 5. Menghentikan Container
+
+```bash
+docker compose down
+```
+
+---
+
 ## Akses Layanan
 
 ### WordPress
 
-```text
 http://localhost:8080
-```
 
 ### MinIO Console
 
-```text
 http://localhost:9001
-```
+
+---
 
 ## Akun MinIO
 
-```text
 Username : minioadmin
+
 Password : minioadmin
-```
+
+---
 
 ## Milestone 1
 
@@ -76,6 +142,8 @@ Password : minioadmin
 * Membuat konfigurasi Docker Compose.
 * Deployment WordPress dan MySQL menggunakan container.
 * Pengujian akses WordPress melalui browser.
+
+---
 
 ## Milestone 2
 
@@ -85,18 +153,67 @@ Password : minioadmin
 * Upload file media pada bucket object storage.
 * Dokumentasi hasil implementasi dan commit ke GitHub.
 
+---
+
+## Milestone 3
+
+* Penerapan best practices keamanan menggunakan file .env.
+* Penghapusan hardcode credentials pada docker-compose.yml.
+* Dokumentasi kontribusi anggota kelompok.
+* Pembuatan portofolio pada platform Bisa.ai.
+* Finalisasi project untuk pengumpulan.
+
+---
+
 ## Hasil Implementasi
 
-Pada Milestone 2, Redis berhasil diintegrasikan dengan WordPress menggunakan Redis Object Cache. Selain itu, MinIO berhasil dijalankan sebagai object storage dan digunakan untuk menyimpan file hasil pengujian. Seluruh container dapat berjalan dengan baik menggunakan Docker Compose.
+Hasil implementasi menunjukkan bahwa seluruh layanan berhasil berjalan menggunakan Docker Compose.
+
+Container yang berhasil dijalankan:
+
+* WordPress
+* MySQL
+* Redis
+* MinIO
+
+Seluruh layanan dapat saling terhubung dan berfungsi sesuai kebutuhan project.
+
+---
+
+## Kontribusi Anggota
+
+### Anastasia Suru
+
+* Konfigurasi Docker Compose.
+* Setup WordPress, MySQL, Redis, dan MinIO.
+* Konfigurasi file .env dan pengujian sistem.
+
+### Maria Helena Lipat
+
+* Dokumentasi dan screenshot hasil implementasi.
+* Membantu pengujian sistem.
+
+### Mariana Mako Pawe
+
+* Portofolio Bisa.ai.
+* Membantu pengujian dan finalisasi project.
+
+---
 
 ## Dokumentasi
 
 Screenshot proses pengerjaan dan hasil implementasi disimpan pada folder:
 
-```text
 screenshots/
-```
+
+---
 
 ## Repository
 
 https://github.com/ansysuru/wordpress-cloud-project
+
+---
+
+## Kesimpulan
+
+Project WordPress Cloud Project berhasil diimplementasikan menggunakan Docker Compose dengan layanan WordPress, MySQL, Redis, dan MinIO. Selain itu, penerapan file .env berhasil meningkatkan keamanan konfigurasi dengan memisahkan credentials dari file docker-compose.yml sesuai best practices dalam lingkungan cloud computing.
